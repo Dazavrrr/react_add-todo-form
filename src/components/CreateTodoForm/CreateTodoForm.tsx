@@ -1,11 +1,12 @@
 import React, { FormEvent, useState } from 'react';
-import usersFromServer from '../../api/users';
+import { User } from '../../types/User';
 
 type Props = {
+  users: User[];
   onAdd: (title: string, userId: number) => void;
 };
 
-export const CreateTodoForm = ({ onAdd }: Props) => {
+export const CreateTodoForm = ({ users, onAdd }: Props) => {
   const [newTitle, setNewTitle] = useState('');
   const [titleError, setTitleError] = useState('');
   const [newTodoUserId, setNewTodoUserId] = useState(0);
@@ -77,7 +78,7 @@ export const CreateTodoForm = ({ onAdd }: Props) => {
             Choose a user
           </option>
 
-          {usersFromServer.map(user => (
+          {users.map(user => (
             <option value={user.id} key={user.id}>
               {user.name}
             </option>

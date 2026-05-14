@@ -33,7 +33,7 @@ export const App = () => {
     <div className="App">
       <h1>Add todo form</h1>
 
-      <CreateTodoForm onAdd={handleAdd} />
+      <CreateTodoForm users={usersFromServer} onAdd={handleAdd} />
 
       <TodoList todos={todos} />
     </div>
